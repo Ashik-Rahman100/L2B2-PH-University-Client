@@ -1,7 +1,7 @@
 import OfferedCourse from "../pages/students/OfferedCourse";
 import StudentDashboard from "../pages/students/StudentDashboard";
 
-export const facultyPaths = [
+export const studentPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
