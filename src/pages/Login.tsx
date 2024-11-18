@@ -21,7 +21,7 @@ export default function Login() {
   const onSubmit = async (data: FieldValues) => {
     const toastId = toast.loading("Logging in");
     try {
-      console.log(error);
+      // console.log(error);
       const userInfo = {
         id: data.id,
         password: data.password,
