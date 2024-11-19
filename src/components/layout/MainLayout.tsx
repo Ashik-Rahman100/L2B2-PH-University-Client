@@ -11,6 +11,7 @@ export default function MainLayout() {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
+
     toast.success("Successfully logout", { duration: 2000 });
   };
   return (

@@ -9,12 +9,12 @@ import {
   REGISTER,
   REHYDRATE,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
 import { baseApi } from "./api/baseApi";
 import authReducer from "./features/auth/authSlice";
 
 const persistConfig = {
-  key: "root",
+  key: "auth",
   storage,
 };
 
@@ -37,4 +37,5 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
+
 export const persistor = persistStore(store);
