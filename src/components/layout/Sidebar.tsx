@@ -36,12 +36,13 @@ export default function Sidebar() {
     <Sider
       breakpoint="lg"
       collapsedWidth="0"
-      onBreakpoint={(broken) => {
-        console.log(broken);
-      }}
-      onCollapse={(collapsed, type) => {
-        console.log(collapsed, type);
-      }}
+      style={{ position: "sticky", top: "0", left: "0", height: "100vh" }}
+      // onBreakpoint={(broken) => {
+      //   console.log(broken);
+      // }}
+      // onCollapse={(collapsed, type) => {
+      //   console.log(collapsed, type);
+      // }}
     >
       <div
         style={{
