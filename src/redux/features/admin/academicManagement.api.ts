@@ -41,6 +41,36 @@ export const academecSemesterApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    getAllFaculty: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+
+        if (args) {
+          args.forEach((item: TQueryParams) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+        return {
+          url: "/academic-faculties",
+          method: "GET",
+          params: params,
+        };
+      },
+      transformResponse: (response: TResponseRedux<TAcademicSemester[]>) => {
+        console.log("inside redux", response);
+        return {
+          data: response.data,
+          meta: response.meta,
+        };
+      },
+    }),
+    addAcademicDepartment: builder.mutation({
+      query: (data) => ({
+        url: "/academic-departments/create-academic-department",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -48,4 +78,6 @@ export const {
   useGetAllSemestersQuery,
   useAddAcademicSemesterMutation,
   useAddAcademicFacultyMutation,
+  useAddAcademicDepartmentMutation,
+  useGetAllFacultyQuery,
 } = academecSemesterApi;
