@@ -24,7 +24,7 @@ export default function CreateAcademicDepartment() {
   console.log(data?.data);
   const facultyOptions = data?.data.map((item) => ({
     value: item._id,
-    label: item.name,
+    label: `${item.name}`,
   }));
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
