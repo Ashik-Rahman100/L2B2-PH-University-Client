@@ -31,10 +31,9 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 > = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
 
-  if (result.error?.status === 404) {
+  if (result?.error?.status === 404) {
     toast.error(result?.error?.data?.message);
   }
-
   if (result?.error?.status === 401) {
     //* Send Refresh
     console.log("Sending refresh token");
@@ -45,7 +44,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     });
 
     const data = await res.json();
-    console.log("retrive token", data);
 
     if (data?.data?.accessToken) {
       const user = (api.getState() as RootState).auth.user;
